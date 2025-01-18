@@ -1,10 +1,11 @@
-import React from "react";
-import { Button } from "./ui/button";
+import AddTodo from "./AddTodo";
+import TodosList from "./TodosList";
 
 const Todos = () => {
 	return (
-		<div className="font-bold text-2xl">
-			<Button>Test</Button>
+		<div className="m-4">
+			<AddTodo />
+			<TodosList />
 		</div>
 	);
 };
