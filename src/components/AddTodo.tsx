@@ -23,7 +23,7 @@ const AddTodo = () => {
 		<div className="">
 			{/* <h1 className="text-xl font-medium">Add todo</h1> */}
 			<form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-				<Input type="text" placeholder="Enter todo" value={input} onChange={handleChange} />
+				<Input type="text" placeholder="Type todo then hit enter" value={input} onChange={handleChange} />
 				{/* <Button>Submit</Button> */}
 			</form>
 		</div>
