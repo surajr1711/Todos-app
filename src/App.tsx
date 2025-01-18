@@ -1,6 +1,6 @@
 import { Provider } from "react-redux";
-import Todos from "./components/Todos";
 import { store } from "./store/store";
+import Todos from "./features/todos/Todos";
 
 const App = () => {
 	return (
