@@ -3,7 +3,7 @@ import TodosList from "./TodosList";
 
 const Todos = () => {
 	return (
-		<div className="m-4">
+		<div className="flex flex-col gap-4 max-w-sm mx-auto">
 			<AddTodo />
 			<TodosList />
 		</div>
