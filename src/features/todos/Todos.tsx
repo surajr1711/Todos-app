@@ -27,11 +27,24 @@ const Todos = () => {
 	} else if (isSuccess) {
 		// content = JSON.stringify(todos);
 		content = (
-			<ul className="flex flex-col gap-4">
-				{todos.map((todo) => (
-					<TodoItem key={todo.id} todo={todo} />
-				))}
-			</ul>
+			<div>
+				<h1 className="text-lg font-semibold">To do</h1>
+				<ul className="flex flex-col gap-4">
+					{todos
+						.filter((todo) => !todo.completed)
+						.map((todo) => (
+							<TodoItem key={todo.id} todo={todo} />
+						))}
+				</ul>
+				<h2 className="text-lg font-semibold">Done</h2>
+				<ul className="flex flex-col gap-4">
+					{todos
+						.filter((todo) => todo.completed)
+						.map((todo) => (
+							<TodoItem key={todo.id} todo={todo} />
+						))}
+				</ul>
+			</div>
 		);
 	} else if (isError) {
 		content = <p>{error.toString()}</p>;

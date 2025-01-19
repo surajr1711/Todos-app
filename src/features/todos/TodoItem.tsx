@@ -26,12 +26,19 @@ export const TodoItem = ({ todo }: { todo: Todo }) => {
 	};
 
 	return (
-		<li className="flex justify-between gap-4 align-items-center">
+		<li
+			className={`${todo.completed && "opacity-25 line-through"} group flex justify-between gap-4 align-items-center`}
+		>
 			<Checkbox checked={isChecked} onClick={handleClick} className="flex-none" />
 
 			<span className="flex-grow">{todo.todo}</span>
 
-			<Button variant="ghost" size="icon-2s" onClick={() => handleDelete()} className="basis-8 flex-none">
+			<Button
+				variant="ghost"
+				size="icon-2s"
+				onClick={() => handleDelete()}
+				className="invisible basis-8 flex-none group-hover:visible"
+			>
 				<LucideX className="text-gray-500" />
 			</Button>
 		</li>

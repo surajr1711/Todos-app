@@ -3,6 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export type Todo = {
 	id: string;
 	todo: string;
+	// pinned: boolean;
 	completed: boolean;
 	userId: string;
 	createdDate: number;
@@ -46,9 +47,11 @@ export const todosApiSlice = createApi({
 		}),
 
 				// editTodo
+				// search todo
 				// reorderTodo
-				// pinTodo
+				// pinLists not todos
 				// tagTodo
+				// completedDate and modifiedDate
 				// addDueDate
 				// addReminder
 				// addToProject (Project)
