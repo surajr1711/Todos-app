@@ -1,13 +1,6 @@
 {
   "todos": [
     {
-      "id": "3",
-      "todo": "Watch a classic movie",
-      "completed": false,
-      "userId": "68",
-      "createdDate": 1734652800000
-    },
-    {
       "id": "4",
       "todo": "Watch a documentary",
       "completed": true,
@@ -31,7 +24,7 @@
     {
       "id": "7",
       "todo": "Solve a Rubik's cube",
-      "completed": true,
+      "completed": false,
       "userId": "76",
       "createdDate": 1734652800000
     },
@@ -52,7 +45,7 @@
     {
       "id": "10",
       "todo": "Write a thank you letter to an influential person in your life",
-      "completed": false,
+      "completed": true,
       "userId": "9",
       "createdDate": 1734652800000
     },

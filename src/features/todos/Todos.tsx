@@ -27,24 +27,29 @@ const Todos = () => {
 	} else if (isSuccess) {
 		// content = JSON.stringify(todos);
 		content = (
-			<div>
-				<h1 className="text-lg font-semibold">To do</h1>
-				<ul className="flex flex-col gap-4">
-					{todos
-						.filter((todo) => !todo.completed)
-						.map((todo) => (
-							<TodoItem key={todo.id} todo={todo} />
-						))}
-				</ul>
-				<h2 className="text-lg font-semibold">Done</h2>
-				<ul className="flex flex-col gap-4">
-					{todos
-						.filter((todo) => todo.completed)
-						.map((todo) => (
-							<TodoItem key={todo.id} todo={todo} />
-						))}
-				</ul>
-			</div>
+			<section>
+				<div className="mb-8">
+					<h1 className="text-lg font-semibold sr-only">To do</h1>
+					<ul className="flex flex-col gap-4">
+						{todos
+							.filter((todo) => !todo.completed)
+							.map((todo) => (
+								<TodoItem key={todo.id} todo={todo} />
+							))}
+					</ul>
+				</div>
+
+				<div>
+					<h2 className="font-semibold mb-4">Done</h2>
+					<ul className="flex flex-col gap-4">
+						{todos
+							.filter((todo) => todo.completed)
+							.map((todo) => (
+								<TodoItem key={todo.id} todo={todo} />
+							))}
+					</ul>
+				</div>
+			</section>
 		);
 	} else if (isError) {
 		content = <p>{error.toString()}</p>;

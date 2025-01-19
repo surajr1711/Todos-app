@@ -27,9 +27,9 @@ export const TodoItem = ({ todo }: { todo: Todo }) => {
 
 	return (
 		<li
-			className={`${todo.completed && "opacity-25 line-through"} group flex justify-between gap-4 align-items-center`}
+			className={`${todo.completed && "opacity-25 line-through"} group flex justify-between gap-5 align-items-center`}
 		>
-			<Checkbox checked={isChecked} onClick={handleClick} className="flex-none" />
+			<Checkbox checked={isChecked} onClick={handleClick} className="flex-none mt-1" />
 
 			<span className="flex-grow">{todo.todo}</span>
 
