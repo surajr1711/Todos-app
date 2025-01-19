@@ -9,7 +9,7 @@ import {
 	//   useDeleteTodoMutation
 } from "./api/apiSlice";
 import AddTodo from "./AddTodo";
-import TodoItem from "./TodoItem";
+import TodoItem, { DoneItem } from "./TodoItem";
 
 const Todos = () => {
 	const { data: todos, isLoading, isSuccess, isError, error } = useGetTodosQuery();
@@ -18,8 +18,6 @@ const Todos = () => {
 	// const [deleteTodo] = useDeleteTodoMutation()
 
 	// const todos = useAppSelector(selectTodos);
-	// const incompleteTodos = todos.filter((todo) => !todo.completed);
-	// const completeTodos = todos.filter((todo) => todo.completed);
 
 	let content;
 	if (isLoading) {
@@ -32,7 +30,7 @@ const Todos = () => {
 					<h1 className="text-lg font-semibold sr-only">To do</h1>
 					<ul className="flex flex-col gap-4">
 						{todos
-							.filter((todo) => !todo.completed)
+							.filter((todo) => !todo.done)
 							.map((todo) => (
 								<TodoItem key={todo.id} todo={todo} />
 							))}
@@ -40,12 +38,12 @@ const Todos = () => {
 				</div>
 
 				<div>
-					<h2 className="font-semibold mb-4">Done</h2>
+					<h2 className="font-semibold mb-4 opacity-25">Done</h2>
 					<ul className="flex flex-col gap-4">
 						{todos
-							.filter((todo) => todo.completed)
+							.filter((todo) => todo.done)
 							.map((todo) => (
-								<TodoItem key={todo.id} todo={todo} />
+								<DoneItem key={todo.id} todo={todo} />
 							))}
 					</ul>
 				</div>

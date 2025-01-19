@@ -17,7 +17,7 @@ const AddTodo = () => {
 			const newTodo = {
 				id: crypto.randomUUID(),
 				todo: input.trim(),
-				completed: false,
+				done: false,
 				// TODO: change this based on loggedin user. right now its manually set to an arbitrary userId 20.
 				userId: "20",
 				createdDate: Date.now(),

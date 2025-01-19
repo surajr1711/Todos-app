@@ -3,8 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export type Todo = {
 	id: string;
 	todo: string;
-	// pinned: boolean;
-	completed: boolean;
+	done: boolean;
 	userId: string;
 	createdDate: number;
 };
@@ -42,11 +41,18 @@ export const todosApiSlice = createApi({
 			}),
 			invalidatesTags: ["Todos"],
 		}),
+		editTodo: builder.mutation<Todo, Todo>({
+			query: (editedTodo) => ({
+				url: `/todos/${editedTodo.id}`,
+				method: "PATCH",
+				body: editedTodo,
+			}),
+			invalidatesTags: ["Todos"],
+		}),
 		/* 		getTodo: builder.query<Todo, string>({
 			query: (id) => `/todos/${id}`,
 		}),
 
-				// editTodo
 				// search todo
 				// reorderTodo
 				// pinLists not todos
@@ -63,6 +69,7 @@ export const {
 	useGetTodosQuery,
 	useAddTodoMutation,
 	useDeleteTodoMutation,
+	useEditTodoMutation,
 	// useGetTodoQuery,
 	useToggleTodoMutation,
 } = todosApiSlice;
