@@ -1,69 +1,28 @@
 {
-  "todos": [
-    {
-      "id": "5",
-      "todo": "Invest in cryptocurrency",
-      "done": false,
-      "userId": "163",
-      "createdDate": 1734652800000
-    },
-    {
-      "id": "6",
-      "todo": "Contribute code or a monetary donation to an open-source software project",
-      "done": true,
-      "userId": "69",
-      "createdDate": 1734652800000
-    },
-    {
-      "id": "7",
-      "todo": "Solve a Rubik's cube really fast",
-      "done": false,
-      "userId": "76",
-      "createdDate": 1734652800000,
-      "completed": false
-    },
-    {
-      "id": "8",
-      "todo": "Bake pastries for yourself and neighbor",
-      "done": true,
-      "userId": "198",
-      "createdDate": 1734652800000
-    },
-    {
-      "id": "9",
-      "todo": "Go see a Broadway production",
-      "done": true,
-      "userId": "7",
-      "createdDate": 1734652800000
-    },
-    {
-      "id": "10",
-      "todo": "Write a thank you letter to an influential person in your life",
-      "done": false,
-      "userId": "9",
-      "createdDate": 1734652800000
-    },
-    {
-      "id": "445a0dcc-e79f-4455-b330-f33ffddf90b4",
-      "todo": "hello wow does this work",
-      "done": false,
-      "userId": "20",
-      "createdDate": 1737282074432,
-      "completed": false
-    },
-    {
-      "id": "02c1f00b-6cfa-4ff3-95b7-60def5a0a580",
-      "todo": "but i think a better way using new css property called field-sizing: content can be used.",
-      "done": false,
-      "userId": "20",
-      "createdDate": 1737298143005
-    },
-    {
-      "id": "c425b965-fdf1-4b11-a1cc-47d4ce6e1c58",
-      "todo": "Watch a documentary",
-      "done": false,
-      "userId": "20",
-      "createdDate": 1737303353060
-    }
-  ]
+	"todos": [
+		{
+			"text": "Invest in cryptocurrency",
+			"done": false
+		},
+		{
+			"text": "Bake pastries for yourself and neighbor",
+			"done": true
+		},
+		{
+			"text": "Go see a Broadway production",
+			"done": true
+		},
+		{
+			"text": "Write a thank you letter to an influential person in your life",
+			"done": false
+		},
+		{
+			"text": "Watch a documentary",
+			"done": true
+		},
+		{
+			"text": "Run a marathon",
+			"done": false
+		}
+	]
 }

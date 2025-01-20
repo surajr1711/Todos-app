@@ -1,24 +1,32 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-export type Todo = {
-	id: string;
-	todo: string;
+export interface Todo {
+	text: string;
 	done: boolean;
-	userId: string;
-	createdDate: number;
-};
+	// userId: string;
+	// dueDate: Date
+	// doneDate: Date
+	// sortOrder: number
+}
+
+// Type of mongodb returned document
+export interface TodoDocument extends Todo {
+	_id: string;
+	createdAt: Date;
+	updatedAt: Date;
+}
 
 export const todosApiSlice = createApi({
 	reducerPath: "api",
 	baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8000" }),
 	tagTypes: ["Todos"],
 	endpoints: (builder) => ({
-		getTodos: builder.query<Todo[], void>({
+		getTodos: builder.query<TodoDocument[], void>({
 			query: () => "/todos",
-			transformResponse: (res: Todo[]) => res.sort((a, b) => b.createdDate - a.createdDate),
+			// transformResponse: (res: Todo[]) => res.sort((a, b) => b.createdDate - a.createdDate),
 			providesTags: ["Todos"],
 		}),
-		addTodo: builder.mutation<Todo, Todo>({
+		addTodo: builder.mutation<TodoDocument, Todo>({
 			query: (newTodo) => ({
 				url: "/todos",
 				method: "POST",
@@ -33,19 +41,19 @@ export const todosApiSlice = createApi({
 			}),
 			invalidatesTags: ["Todos"],
 		}),
-		toggleTodo: builder.mutation<Todo, Todo>({
-			query: (toggledTodo) => ({
-				url: `/todos/${toggledTodo.id}`,
+		toggleTodo: builder.mutation<TodoDocument, { _id: string; done: boolean }>({
+			query: (payload) => ({
+				url: `/todos/${payload._id}`,
 				method: "PATCH",
-				body: toggledTodo,
+				body: { done: payload.done },
 			}),
 			invalidatesTags: ["Todos"],
 		}),
-		editTodo: builder.mutation<Todo, Todo>({
-			query: (editedTodo) => ({
-				url: `/todos/${editedTodo.id}`,
+		editTodo: builder.mutation<TodoDocument, { _id: string; text: string }>({
+			query: (payload) => ({
+				url: `/todos/${payload._id}`,
 				method: "PATCH",
-				body: editedTodo,
+				body: { text: payload.text },
 			}),
 			invalidatesTags: ["Todos"],
 		}),
@@ -69,7 +77,7 @@ export const {
 	useGetTodosQuery,
 	useAddTodoMutation,
 	useDeleteTodoMutation,
+	useToggleTodoMutation,
 	useEditTodoMutation,
 	// useGetTodoQuery,
-	useToggleTodoMutation,
 } = todosApiSlice;

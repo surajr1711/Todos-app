@@ -15,12 +15,9 @@ const AddTodo = () => {
 		e.preventDefault();
 		if (input.trim()) {
 			const newTodo = {
-				id: crypto.randomUUID(),
-				todo: input.trim(),
+				text: input.trim(),
 				done: false,
 				// TODO: change this based on loggedin user. right now its manually set to an arbitrary userId 20.
-				userId: "20",
-				createdDate: Date.now(),
 			};
 			await addTodo(newTodo);
 		}
