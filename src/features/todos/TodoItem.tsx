@@ -67,6 +67,8 @@ const TodoItem = ({ todo }: { todo: TodoDocument }) => {
 		}
 	};
 
+	// TODO: when editing a todo, onblur should also submit the form ie without having to hit enter. But it should submit only if entered/final text is not same as initial text.
+
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		submitEditedTodo();
