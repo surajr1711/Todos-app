@@ -128,7 +128,7 @@ export const DoneItem = ({ todo }: { todo: TodoDocument }) => {
 	};
 
 	return (
-		<li className="opacity-25 group flex justify-between gap-5 align-items-center">
+		<li className="opacity-40 group flex justify-between gap-5 align-items-center">
 			<Checkbox checked={isChecked} onClick={handleClick} className="flex-none mt-1" />
 
 			<span className="flex-grow line-through">{todo.text}</span>
@@ -139,7 +139,7 @@ export const DoneItem = ({ todo }: { todo: TodoDocument }) => {
 				onClick={() => handleDelete()}
 				className="invisible basis-8 flex-none group-hover:visible"
 			>
-				<LucideX className="text-gray-500" />
+				<LucideX className="" />
 			</Button>
 		</li>
 	);

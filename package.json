@@ -7,6 +7,8 @@
 		"dev:frontend": "vite",
 		"dev:backend": "node --watch-path ./backend --env-file=.env ./backend/server",
 		"build:frontend": "tsc -b && vite build",
+		"start:frontend": "vite preview",
+		"start:backend": "node backend/server.js",
 		"lint": "eslint .",
 		"preview": "vite preview",
 		"jsonserver": "json-server --watch src/db/data.json --port 8000"
