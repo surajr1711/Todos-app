@@ -18,7 +18,7 @@ export interface TodoDocument extends Todo {
 
 export const todosApiSlice = createApi({
 	reducerPath: "api",
-	baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8000" }),
+	baseQuery: fetchBaseQuery({ baseUrl: `${import.meta.env.VITE_SERVER_URI}` }),
 	tagTypes: ["Todos"],
 	endpoints: (builder) => ({
 		getTodos: builder.query<TodoDocument[], void>({
