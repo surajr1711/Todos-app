@@ -1,50 +1,61 @@
-# React + TypeScript + Vite
+# [Planner](https://todos-app-gamma-bice.vercel.app/)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Planner is a todos app **at the moment**. It's a WIP envisioned to be my opinionated approach to journal, reminders, notes and goal-setting apps.
 
-Currently, two official plugins are available:
+**Links**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Live site](https://todos-app-gamma-bice.vercel.app/)
+- [Frontend repo](https://github.com/surajr1711/Todos-app)
+- [Backend repo](https://github.com/surajr1711/Todos-app-backend)
 
-## Expanding the ESLint configuration
+## Highlights
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Planner's approach to todos is different in presentation compared to the typical todos tutorial app.
 
-- Configure the top-level `parserOptions` property like this:
+- There is no submit button to add a todo. Hitting enter submits it.
+- There is no form UI to edit a todo's text. Edit it directly in the list view.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Working features
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- View all, add, toggle, edit, delete todos.
+- Dark mode
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Why build this?
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Planner is an effort to build features that I've wanted as an alternative to MS OneNote and Google Keep. I've not only wanted to create lists to stay organized, but also a note taking and journal space that follows a pattern/philosophy that works for me. The abstract is to be a day planner, projects/todos tracker, goal setter and note-taker, all while being very simple and obvious. It's like a self-mentor. It knows everything about me and is invested in my success.
+
+## Instructions to run locally
+
+- Create a MongoDB Atlas project.
+- Clone the backend repo.
+- Create a **.env** file with `MONGO_URI=<your_connection_string>`
+- Clone the frontend repo.
+- Create a **.env.development** file with `VITE_SERVER_URI=http://localhost:8000`
+- Run both projects `npm run dev`
+
+## Upcoming features
+
+The following features are under development and listed in no particular order.
+
+**Todos**
+
+- Individual todo lists
+- Tag lists
+- Search lists and todos
+- Filter and sort todos
+- List completion progress
+- Reorder todos
+- Set due dates and reminder notifications
+- Create a todo directly within a list without needing an add form
+
+**App**
+
+- User authentication
+- Colored themes
+- Offline PWA functionality
+
+## Troubleshooting
+
+- Set your MongoDB network access to "any IP address".
+
+<!-- ## Credits (People and sources used for the project with their links) -->
