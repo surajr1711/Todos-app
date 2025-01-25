@@ -77,6 +77,19 @@ export const todosApiSlice = createApi({
 				method: "DELETE",
 			}),
 			invalidatesTags: ["Todos"],
+			// Optimistic update
+			async onQueryStarted(id, { dispatch, queryFulfilled }) {
+				const patchResult = dispatch(
+					todosApiSlice.util.updateQueryData("getTodos", undefined, (draft) => {
+						return draft.filter((todo) => todo._id !== id);
+					})
+				);
+				try {
+					await queryFulfilled;
+				} catch {
+					patchResult.undo();
+				}
+			},
 		}),
 
 		toggleTodo: builder.mutation<TodoDocument, { _id: string; done: boolean }>({
@@ -87,10 +100,10 @@ export const todosApiSlice = createApi({
 			}),
 			invalidatesTags: ["Todos"],
 			// Optimistic update to toggle todo
-			async onQueryStarted(todo, { dispatch, queryFulfilled }) {
+			async onQueryStarted(payload, { dispatch, queryFulfilled }) {
 				const patchResult = dispatch(
 					todosApiSlice.util.updateQueryData("getTodos", undefined, (draft) => {
-						const todoToUpdate = draft.find((t) => t._id === todo._id);
+						const todoToUpdate = draft.find((t) => t._id === payload._id);
 						if (todoToUpdate) {
 							todoToUpdate.done = !todoToUpdate.done;
 						}
@@ -111,6 +124,22 @@ export const todosApiSlice = createApi({
 				body: { text: payload.text },
 			}),
 			invalidatesTags: ["Todos"],
+			// Optimistic update to edit a todo
+			async onQueryStarted(payload, { dispatch, queryFulfilled }) {
+				const patchResult = dispatch(
+					todosApiSlice.util.updateQueryData("getTodos", undefined, (draft) => {
+						const todoToUpdate = draft.find((todo) => todo._id === payload._id);
+						if (todoToUpdate) {
+							todoToUpdate.text = payload.text;
+						}
+					})
+				);
+				try {
+					await queryFulfilled;
+				} catch {
+					patchResult.undo();
+				}
+			},
 		}),
 		/* 		getTodo: builder.query<Todo, string>({
 			query: (id) => `/todos/${id}`,
